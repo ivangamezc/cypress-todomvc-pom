@@ -1,34 +1,24 @@
 class TodoPage {
- 
+  // Selectores
   elements = {
     newTodoInput: () => cy.get('.new-todo'),
-    todoList: () => cy.get('.todo-list'),
-    editInput: () => cy.get('li.editing .edit'),
-    // Selector para los checkboxes
-    todoCheckbox: (text) => cy.contains('.todo-list li', text).find('input.toggle'),
-    // Botón de eliminar
-    deleteButton: (text) => cy.contains('.todo-list li', text).find('.destroy'),
-    // Botones de filtro
+    todoList: () => cy.get('.todo-list li'),
+    deleteButton: (texto) => cy.contains(texto).parent().find('.destroy'),
     filterCompleted: () => cy.contains('Completed'),
     filterActive: () => cy.contains('Active')
-  };
-
-  //ACCIONES 
-  navegar() {
-    cy.visit('https://todomvc.com/examples/javascript-es6/dist/');
   }
 
-  agregarTarea(texto) {
-    this.elements.newTodoInput().type(`${texto}{enter}`);
+  // Métodos
+  visit() {
+    cy.visit('https://todomvc.com/examples/react/dist/');
   }
 
-  clicarCheckbox(texto) {
-    this.elements.todoCheckbox(texto).click();
+  typeTodo(todo) {
+    this.elements.newTodoInput().type(`${todo}{enter}`);
   }
 
-  editarTarea(textoOriginal, nuevoTexto) {
-    cy.get('.todo-list li label').contains(textoOriginal).dblclick();
-    this.elements.editInput().clear().type(`${nuevoTexto}{enter}`);
+  validateTodoInList(todoText) {
+    this.elements.todoList().should('contain', todoText);
   }
 
   borrarTarea(texto) {
