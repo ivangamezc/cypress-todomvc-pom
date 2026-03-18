@@ -1,0 +1,15 @@
+name: CI Cypress TodoMVC 🚀
+
+on: [push]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código 📂
+        uses: actions/checkout@v4
+
+      - name: Instalación y ejecución de Cypress 🧪
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
