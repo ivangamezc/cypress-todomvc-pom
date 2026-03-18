@@ -1,3 +1,5 @@
+![Cypress Tests](https://github.com/ivangamezc/cypress-todomvc-pom/actions/workflows/main.yml/badge.svg)
+
 # Cypress Automation Suite - TodoMVC 🚀
 
 Este proyecto es una suite de pruebas automatizadas para la aplicación TodoMVC, desarrollada con **Cypress**. El repositorio muestra la evolución de una estrategia de pruebas, desde un enfoque básico hasta arquitecturas avanzadas.
