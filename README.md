@@ -22,3 +22,13 @@ La suite cubre el 100% de la lógica de TodoMVC:
 * 🗑️ Eliminación: Borrar tareas de la lista.
 * ✅ Check/Uncheck: Marcar y desmarcar tareas como completadas.
 * 🔍 Filtros: Visualización por estados (All, Active, Completed).
+
+🤖 Integración Continua (CI/CD)
+Este proyecto cuenta con un flujo de trabajo automatizado mediante **GitHub Actions**.
+
+🛠️ Pipeline de Testing
+Cada vez que se realiza un `push` o un `pull request` a la rama principal, se dispara un **Workflow** automático que realiza las siguientes tareas:
+1.  **Entorno:** Levanta una máquina virtual con `ubuntu-latest`.
+2.  **Instalación:** Configura Node.js y descarga todas las dependencias del proyecto.
+3.  **Ejecución:** Lanza la suite completa de pruebas de **Cypress** en el navegador Chrome.
+4.  **Validación:** Asegura que los tres niveles de prueba (Básico, POM y Cucumber) mantienen un estado de **PASS**.
